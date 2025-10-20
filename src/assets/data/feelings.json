@@ -1,0 +1,18 @@
+[
+  {
+    "id": "happy",
+    "nameEn": "Happy",
+    "nameAr": "سعيد",
+    "icon": "happy-outline",
+    "bgColor": "#FFD700",
+    "textColor": "#000000"
+  },
+  {
+    "id": "sad",
+    "nameEn": "Sad",
+    "nameAr": "حزين",
+    "icon": "sad-outline",
+    "bgColor": "#4A90E2",
+    "textColor": "#FFFFFF"
+  }
+]

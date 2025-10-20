@@ -1,0 +1,19 @@
+<ion-grid>
+  <ion-row>
+    <ion-col size="6" *ngFor="let feeling of feelings">
+      <ion-card 
+        button="true"
+        (click)="onFeelingSelect(feeling)"
+        [style.background-color]="feeling.bgColor"
+        [style.color]="feeling.textColor"
+        class="feeling-card">
+        <ion-card-content class="feeling-content">
+          <ion-icon [name]="feeling.icon" class="feeling-icon"></ion-icon>
+          <div class="feeling-name-en">{{ feeling.nameEn }}</div>
+          <div class="feeling-name-ar">{{ feeling.nameAr }}</div>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+

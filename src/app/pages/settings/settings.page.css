@@ -1,0 +1,12 @@
+.content-wrapper {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.placeholder-text {
+  text-align: center;
+  color: var(--ion-color-medium);
+  font-size: 16px;
+  margin-top: 40px;
+}

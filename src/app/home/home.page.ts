@@ -5,7 +5,7 @@ import { FeelingsListComponent } from '../components/feelings-list/feelings-list
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  styleUrls: ['home.page.css'],
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, FeelingsListComponent],
 })
 export class HomePage {

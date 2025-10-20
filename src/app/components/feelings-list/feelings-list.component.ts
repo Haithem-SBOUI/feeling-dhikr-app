@@ -10,7 +10,7 @@ import feelingsData from '../../../assets/data/feelings.json';
   selector: 'app-feelings-list',
   imports: [CommonModule, IonCard, IonCardContent, IonIcon, IonGrid, IonRow, IonCol],
   templateUrl: './feelings-list.component.html',
-  styleUrl: './feelings-list.component.scss',
+  styleUrl: './feelings-list.component.css',
   standalone: true
 })
 export class FeelingsListComponent implements OnInit {

@@ -1,0 +1,7 @@
+{
+  "name": "feeling-dhikr-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

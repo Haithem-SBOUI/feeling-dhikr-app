@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
 import { FeelingsListComponent } from '../components/feelings-list/feelings-list.component';
+import { appText } from '../translations/language.store';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,8 @@ import { FeelingsListComponent } from '../components/feelings-list/feelings-list
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, FeelingsListComponent],
 })
 export class HomePage {
+  appText = appText;
+
   constructor() {}
 }
 

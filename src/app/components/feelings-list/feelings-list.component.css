@@ -32,15 +32,8 @@
   margin-bottom: 12px;
 }
 
-.feeling-name-en {
+.feeling-name {
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.feeling-name-ar {
-  font-size: 16px;
-  font-weight: 500;
-  font-family: 'Arial', sans-serif;
-  direction: rtl;
+  margin-top: 8px;
 }

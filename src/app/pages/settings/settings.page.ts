@@ -1,20 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonItem, IonLabel, IonSelect, IonSelectOption } from '@ionic/angular/standalone';
+import { currentLanguage, setLanguage, appText } from '../../translations/language.store';
+import { Language } from '../../translations/translations';
 
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.page.html',
   styleUrls: ['./settings.page.css'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonItem, IonLabel, IonSelect, IonSelectOption, CommonModule, FormsModule]
 })
-export class SettingsPage implements OnInit {
+export class SettingsPage {
+  appText = appText;
+  
+  // Current language signal
+  lang = currentLanguage;
 
-  constructor() { }
-
-  ngOnInit() {
+  // Change language
+  onLanguageChange(event: any) {
+    const newLang = event.detail.value as Language;
+    setLanguage(newLang);
   }
-
 }

@@ -9,8 +9,7 @@
         class="feeling-card">
         <ion-card-content class="feeling-content">
           <ion-icon [name]="feeling.icon" class="feeling-icon"></ion-icon>
-          <div class="feeling-name-en">{{ feeling.nameEn }}</div>
-          <div class="feeling-name-ar">{{ feeling.nameAr }}</div>
+          <div class="feeling-name">{{ currLang() === 'ar' ? feeling.nameAr : feeling.nameEn }}</div>
         </ion-card-content>
       </ion-card>
     </ion-col>

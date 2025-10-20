@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonCard, IonCardContent, IonIcon, IonGrid, IonRow, IonCol } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { happyOutline, sadOutline } from 'ionicons/icons';
 import { Feeling } from '../../models/feeling.model';
 import feelingsData from '../../../assets/data/feelings.json';
+import { currentLanguage } from '../../translations/language.store';
 
 @Component({
   selector: 'app-feelings-list',
@@ -15,14 +16,14 @@ import feelingsData from '../../../assets/data/feelings.json';
 })
 export class FeelingsListComponent implements OnInit {
   feelings: Feeling[] = [];
-
+  
+  // Helper: get feeling name based on current language
+  currLang = currentLanguage;
   constructor() {
-    // Register Ionic icons
     addIcons({ happyOutline, sadOutline });
   }
 
   ngOnInit() {
-    // Load feelings data from JSON file
     this.feelings = feelingsData as Feeling[];
   }
 

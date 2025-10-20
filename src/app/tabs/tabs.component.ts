@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { home, settings } from 'ionicons/icons';
+import { appText } from '../translations/language.store';
 
 @Component({
   selector: 'app-tabs',
@@ -10,12 +11,10 @@ import { home, settings } from 'ionicons/icons';
   standalone: true,
   imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel]
 })
-export class TabsComponent  implements OnInit {
+export class TabsComponent {
+  appText = appText;
 
   constructor() {
     addIcons({ home, settings });
   }
-
-  ngOnInit() {}
-
 }

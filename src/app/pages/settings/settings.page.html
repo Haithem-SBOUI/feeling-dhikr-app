@@ -1,17 +1,28 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
-    <ion-title>Settings | الإعدادات</ion-title>
+    <ion-title>{{ appText().settings.title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Settings</ion-title>
+      <ion-title size="large">{{ appText().settings.title }}</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div class="content-wrapper">
-    <p class="placeholder-text">Settings page - Coming soon إن شاء الله</p>
+    <ion-list>
+      <ion-item>
+        <ion-label>{{ appText().settings.language }}</ion-label>
+        <ion-select 
+          [value]="lang()" 
+          (ionChange)="onLanguageChange($event)"
+          interface="popover">
+          <ion-select-option value="en">{{ appText().settings.english }}</ion-select-option>
+          <ion-select-option value="ar">{{ appText().settings.arabic }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>

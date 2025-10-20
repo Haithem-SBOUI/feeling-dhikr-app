@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonItem, IonLabel, IonSelect, IonSelectOption } from '@ionic/angular/standalone';
 import { currentLanguage, setLanguage, appText } from '../../translations/language.store';
@@ -10,7 +9,7 @@ import { Language } from '../../translations/translations';
   templateUrl: './settings.page.html',
   styleUrls: ['./settings.page.css'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonItem, IonLabel, IonSelect, IonSelectOption, CommonModule, FormsModule]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonItem, IonLabel, IonSelect, IonSelectOption, FormsModule]
 })
 export class SettingsPage {
   appText = appText;

@@ -1,5 +1,4 @@
-import { Component, OnInit, computed } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { IonCard, IonCardContent, IonIcon, IonGrid, IonRow, IonCol } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { happyOutline, sadOutline } from 'ionicons/icons';
@@ -9,7 +8,7 @@ import { currentLanguage } from '../../translations/language.store';
 
 @Component({
   selector: 'app-feelings-list',
-  imports: [CommonModule, IonCard, IonCardContent, IonIcon, IonGrid, IonRow, IonCol],
+  imports: [IonCard, IonCardContent, IonIcon, IonGrid, IonRow, IonCol],
   templateUrl: './feelings-list.component.html',
   styleUrl: './feelings-list.component.css',
   standalone: true

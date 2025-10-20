@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/settings"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ appText().about.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="content-wrapper">
+    <!-- App Info Card -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ appText().about.appName }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p class="version">{{ appText().about.version }}: {{ appVersion }}</p>
+        <p class="description">{{ appText().about.description }}</p>
+        <p class="purpose">{{ appText().about.purpose }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Links Card -->
+    <ion-card>
+      <ion-card-content class="links">
+        <a href="mailto:contact@haithem-sboui.me" target="_blank" class="link-item">
+          <ion-icon name="mail-outline"></ion-icon>
+          <span>{{ appText().about.contact }}</span>
+        </a>
+        <a href="https://github.com/Haithem-SBOUI/feeling-dhikr-app" target="_blank" class="link-item">
+          <ion-icon name="logo-github"></ion-icon>
+          <span>{{ appText().about.repo }}</span>
+        </a>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

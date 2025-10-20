@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 import { loadSavedLanguage } from './translations/language.store';
+import { loadSavedTheme } from './theme/theme.store';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { loadSavedLanguage } from './translations/language.store';
 })
 export class AppComponent {
   constructor() {
-    // Load saved language on app start
     loadSavedLanguage();
+    loadSavedTheme();
   }
 }

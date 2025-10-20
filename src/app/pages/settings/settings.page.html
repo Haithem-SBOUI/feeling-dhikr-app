@@ -13,6 +13,7 @@
 
   <div class="content-wrapper">
     <ion-list>
+      <!-- Language Setting -->
       <ion-item>
         <ion-label>{{ appText().settings.language }}</ion-label>
         <ion-select 
@@ -22,6 +23,20 @@
           <ion-select-option value="en">{{ appText().settings.english }}</ion-select-option>
           <ion-select-option value="ar">{{ appText().settings.arabic }}</ion-select-option>
         </ion-select>
+      </ion-item>
+
+      <!-- Theme Toggle -->
+      <ion-item>
+        <ion-label>{{ appText().settings.darkMode }}</ion-label>
+        <ion-toggle 
+          [checked]="theme() === 'dark'" 
+          (ionChange)="onThemeToggle()">
+        </ion-toggle>
+      </ion-item>
+
+      <!-- About Button -->
+      <ion-item button (click)="goToAbout()">
+        <ion-label>{{ appText().settings.about }}</ion-label>
       </ion-item>
     </ion-list>
   </div>

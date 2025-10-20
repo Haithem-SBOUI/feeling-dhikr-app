@@ -4,9 +4,16 @@
   margin: 0 auto;
 }
 
-.placeholder-text {
-  text-align: center;
-  color: var(--ion-color-medium);
-  font-size: 16px;
-  margin-top: 40px;
+ion-list {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+ion-item {
+  --padding-start: 16px;
+  --inner-padding-end: 16px;
+}
+
+ion-label {
+  font-weight: 500;
 }

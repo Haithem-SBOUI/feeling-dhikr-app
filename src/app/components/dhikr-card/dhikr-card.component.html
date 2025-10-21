@@ -23,7 +23,7 @@
       <ion-badge 
         [color]="isCompleted() ? 'success' : 'primary'" 
         class="repetitions-badge">
-        <span class="repetitions-text">
+        <span class="repetitions-text" [class.animate-pop]="shouldAnimateCounter()">
           {{ currentCount() }} / {{ dhikr.repetitions }}
         </span>
       </ion-badge>

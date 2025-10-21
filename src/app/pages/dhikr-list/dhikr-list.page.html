@@ -1,16 +1,14 @@
-<ion-header [translucent]="true">
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
+      <ion-back-button defaultHref="/home" text=""></ion-back-button>
     </ion-buttons>
     <ion-title>{{ getFeelingName() }}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="resetAllDhikrs()" title="Reset All">
-        <ion-icon slot="icon-only" name="refresh-outline"></ion-icon>
+      <ion-button (click)="resetAllDhikrs()" title="Reset All" #resetButton>
+        <ion-icon slot="icon-only" name="refresh-outline" [class.wiggle]="wiggleReset()"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
-</ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">

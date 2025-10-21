@@ -7,6 +7,43 @@
   background: linear-gradient(135deg, var(--ion-color-primary-tint) 0%, var(--ion-color-primary) 100%);
   color: white;
   margin-bottom: 16px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  animation: slideInFromTop 0.5s ease-out;
+}
+
+/* Animated background particles */
+.streak-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: particleFloat 20s linear infinite;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-50px, -50px);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .streak-display {
@@ -14,26 +51,74 @@
   align-items: center;
   gap: 16px;
   margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
 }
 
 .streak-icon ion-icon {
   font-size: 3rem;
+  animation: flameFlicker 2s ease-in-out infinite;
+}
+
+@keyframes flameFlicker {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+  }
 }
 
 .streak-info h2 {
   margin: 0;
   font-size: 2rem;
   font-weight: bold;
+  animation: numberPop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes numberPop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .streak-info p {
   margin: 4px 0;
   opacity: 0.9;
+  animation: fadeIn 0.6s ease-out 0.2s both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.9;
+  }
 }
 
 .streak-emoji {
   font-size: 2rem;
   margin-left: 8px;
+  display: inline-block;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
 }
 
 .streak-details {
@@ -70,7 +155,28 @@ ion-segment {
 .stat-item {
   padding: 16px;
   background: var(--ion-color-light);
-  border-radius: 12px;
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.stat-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.stat-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.stat-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.stat-item:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: var(--ion-color-light-tint);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .stat-value {
@@ -78,12 +184,32 @@ ion-segment {
   font-weight: bold;
   color: var(--ion-color-primary);
   margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover .stat-value {
+  transform: scale(1.1);
+  color: var(--ion-color-primary-shade);
 }
 
 .stat-label {
   font-size: 0.85rem;
   color: var(--ion-color-medium);
   line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Lifetime Stats */
@@ -93,11 +219,18 @@ ion-segment {
   align-items: center;
   padding: 24px;
   text-align: center;
+  animation: fadeIn 0.6s ease-out;
 }
 
 .lifetime-stat ion-icon {
   font-size: 3rem;
   margin-bottom: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lifetime-stat:hover ion-icon {
+  transform: scale(1.1) rotate(5deg);
+  filter: brightness(1.2);
 }
 
 .lifetime-value {
@@ -105,11 +238,20 @@ ion-segment {
   font-weight: bold;
   color: var(--ion-color-primary);
   margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.lifetime-stat:hover .lifetime-value {
+  transform: scale(1.1);
+  text-shadow: 0 0 10px rgba(var(--ion-color-primary-rgb), 0.3);
 }
 
 .lifetime-label {
   font-size: 1rem;
   color: var(--ion-color-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
 }
 
 /* No Data */
@@ -118,6 +260,16 @@ ion-segment {
   color: var(--ion-color-medium);
   padding: 32px;
   font-size: 1rem;
+  animation: gentlePulse 2s ease-in-out infinite;
+}
+
+@keyframes gentlePulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 /* List Styling */

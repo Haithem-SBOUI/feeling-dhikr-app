@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList, ElementRef, ViewChild, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonBackButton, IonButtons, IonButton, IonIcon } from '@ionic/angular/standalone';
@@ -30,10 +30,12 @@ import feelingsData from '../../../assets/data/feelings.json';
 })
 export class DhikrListPage implements OnInit {
   @ViewChildren(DhikrCardComponent) dhikrCards!: QueryList<DhikrCardComponent>;
+  @ViewChild('resetButton', { read: ElementRef }) resetButton?: ElementRef;
   
   appText = appText;
   lang = currentLanguage;
   feeling?: Feeling;
+  wiggleReset = signal(false);
   
   constructor(private route: ActivatedRoute) {
     addIcons({ refreshOutline });
@@ -55,6 +57,16 @@ export class DhikrListPage implements OnInit {
   }
   
   resetAllDhikrs() {
+    // Check if any dhikr has count > 0
+    const hasProgress = this.dhikrCards.some(card => card.currentCount() > 0);
+    
+    if (!hasProgress) {
+      // Nothing to reset - wiggle the button
+      this.wiggleReset.set(true);
+      setTimeout(() => this.wiggleReset.set(false), 500);
+      return;
+    }
+    
     // Reset all dhikr cards
     this.dhikrCards.forEach(card => {
       card.resetCounter();

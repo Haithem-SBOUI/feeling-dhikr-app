@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, computed } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
 import { FeelingsListComponent } from '../components/feelings-list/feelings-list.component';
-import { appText } from '../translations/language.store';
+import { appText, currentLanguage } from '../translations/language.store';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +11,19 @@ import { appText } from '../translations/language.store';
 })
 export class HomePage {
   appText = appText;
+  lang = currentLanguage;
+
+  // Time-based greeting
+  greeting = computed(() => {
+    const hour = new Date().getHours();
+    const isArabic = this.lang() === 'ar';
+    
+    if (hour >= 2 && hour < 12) {
+      return isArabic ? 'صباح الخير' : 'Good Morning';
+    } else {
+      return isArabic ? 'مساء الخير' : 'Good Afternoon';
+    }
+  });
 
   constructor() {}
 }

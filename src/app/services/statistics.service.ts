@@ -47,6 +47,7 @@ export function recordDhikrCompletion(dhikrId: string, feelingId: string, count:
     count
   };
   stats.completions.push(completion);
+  console.log(stats)
   
   // Update total
   stats.totalDhikrsCompleted += count;

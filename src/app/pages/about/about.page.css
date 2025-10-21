@@ -2,16 +2,56 @@
   padding: 20px;
   max-width: 800px;
   margin: 0 auto;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 ion-card {
   margin-bottom: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideInFromBottom 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+ion-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+ion-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+ion-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .version {
   font-size: 14px;
   color: var(--ion-color-medium);
   margin-bottom: 12px;
+  animation: fadeIn 0.6s ease-out 0.3s both;
 }
 
 .description {
@@ -19,12 +59,20 @@ ion-card {
   font-weight: 600;
   margin-bottom: 12px;
   color: var(--ion-color-primary);
+  animation: fadeIn 0.6s ease-out 0.4s both;
+  transition: all 0.3s ease;
+}
+
+.description:hover {
+  transform: scale(1.02);
+  text-shadow: 0 0 10px rgba(var(--ion-color-primary-rgb), 0.2);
 }
 
 .purpose {
   font-size: 16px;
   line-height: 1.6;
   color: var(--ion-color-dark);
+  animation: fadeIn 0.6s ease-out 0.5s both;
 }
 
 .developer {
@@ -33,12 +81,14 @@ ion-card {
   font-style: italic;
   color: var(--ion-color-medium);
   margin: 8px 0;
+  animation: fadeIn 0.6s ease-out 0.6s both;
 }
 
 .links {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  animation: fadeIn 0.6s ease-out 0.7s both;
 }
 
 .link-item {
@@ -49,12 +99,37 @@ ion-card {
   color: var(--ion-color-primary);
   font-size: 16px;
   padding: 8px 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.link-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--ion-color-primary);
+  transition: width 0.3s ease;
+}
+
+.link-item:hover::before {
+  width: 100%;
 }
 
 .link-item ion-icon {
   font-size: 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-item:hover {
-  opacity: 0.7;
+  opacity: 1;
+  transform: translateX(8px);
+  color: var(--ion-color-primary-shade);
+}
+
+.link-item:hover ion-icon {
+  transform: scale(1.2) rotate(5deg);
 }

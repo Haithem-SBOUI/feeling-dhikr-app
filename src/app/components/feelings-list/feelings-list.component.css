@@ -4,18 +4,44 @@
   align-items: center;
   justify-content: center;
   margin: 8px;
-  border-radius: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle shine effect */
+.feeling-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 70%
+  );
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+}
+
+.feeling-card:hover::before {
+  left: 100%;
 }
 
 .feeling-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .feeling-card:active {
-  transform: translateY(-2px);
+  transform: translateY(-4px) scale(0.98);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .feeling-content {
@@ -25,15 +51,30 @@
   justify-content: center;
   text-align: center;
   padding: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .feeling-icon {
   font-size: 48px;
   margin-bottom: 12px;
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.feeling-card:hover .feeling-icon {
+  transform: scale(1.2) rotate(5deg);
 }
 
 .feeling-name {
   font-size: 18px;
   font-weight: 600;
   margin-top: 8px;
+  transition: all 0.3s ease;
+  opacity: 0.9;
+}
+
+.feeling-card:hover .feeling-name {
+  opacity: 1;
+  transform: translateY(-2px);
+  font-weight: 700;
 }

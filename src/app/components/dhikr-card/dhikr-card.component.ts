@@ -29,6 +29,7 @@ export class DhikrCardComponent implements OnInit {
   
   currentCount = signal(0);
   isCompleted = signal(false);
+  animateCounter = signal(false);
   
   private readonly EXPIRATION_TIME_MS = 60 * 60 * 1000; // 1 hour in milliseconds
   
@@ -81,6 +82,10 @@ export class DhikrCardComponent implements OnInit {
     
     const newCount = this.currentCount() + 1;
     this.currentCount.set(newCount);
+    
+    // Trigger counter animation - simple fade
+    this.animateCounter.set(true);
+    setTimeout(() => this.animateCounter.set(false), 200);
     
     // Save count and timestamp
     localStorage.setItem(`dhikr-${this.dhikr.id}-count`, newCount.toString());
@@ -142,5 +147,9 @@ export class DhikrCardComponent implements OnInit {
   
   getProgress(): number {
     return this.dhikr.repetitions > 0 ? this.currentCount() / this.dhikr.repetitions : 0;
+  }
+  
+  shouldAnimateCounter(): boolean {
+    return this.animateCounter();
   }
 }

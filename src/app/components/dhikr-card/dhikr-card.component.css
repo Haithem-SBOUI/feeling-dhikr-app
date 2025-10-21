@@ -1,0 +1,52 @@
+.dhikr-card {
+  margin: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.resource-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ion-color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dhikr-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 16px;
+  min-height: 60px;
+  text-align: left;
+  direction: ltr;
+}
+
+.dhikr-content.arabic {
+  font-size: 1.3rem;
+  line-height: 2;
+  text-align: right;
+  direction: rtl;
+  font-family: 'Traditional Arabic', 'Arabic Typesetting', serif;
+}
+
+.repetitions-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ion-color-light);
+}
+
+.repetitions-badge {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+.repetitions-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

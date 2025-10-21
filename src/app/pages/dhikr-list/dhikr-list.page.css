@@ -1,0 +1,23 @@
+.content-wrapper {
+  padding: 16px 0;
+}
+
+.dhikr-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  padding: 20px;
+  text-align: center;
+}
+
+.empty-state p {
+  font-size: 1.1rem;
+  color: var(--ion-color-medium);
+}

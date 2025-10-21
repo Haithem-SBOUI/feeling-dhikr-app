@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonCard, IonCardContent, IonIcon, IonGrid, IonRow, IonCol } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { happyOutline, sadOutline } from 'ionicons/icons';
@@ -18,7 +19,8 @@ export class FeelingsListComponent implements OnInit {
   
   // Helper: get feeling name based on current language
   currLang = currentLanguage;
-  constructor() {
+  
+  constructor(private router: Router) {
     addIcons({ happyOutline, sadOutline });
   }
 
@@ -27,7 +29,6 @@ export class FeelingsListComponent implements OnInit {
   }
 
   onFeelingSelect(feeling: Feeling) {
-    console.log('Selected feeling:', feeling);
-    // TODO: Navigate to dhikr list for this feeling
+    this.router.navigate(['/dhikr-list', feeling.id]);
   }
 }

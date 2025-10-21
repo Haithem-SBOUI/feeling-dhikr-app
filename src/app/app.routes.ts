@@ -24,4 +24,8 @@ export const routes: Routes = [
     path: 'about',
     loadComponent: () => import('./pages/about/about.page').then( m => m.AboutPage)
   },
+  {
+    path: 'dhikr-list/:id',
+    loadComponent: () => import('./pages/dhikr-list/dhikr-list.page').then( m => m.DhikrListPage)
+  },
 ];

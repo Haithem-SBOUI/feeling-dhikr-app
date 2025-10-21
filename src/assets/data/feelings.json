@@ -5,7 +5,33 @@
     "nameAr": "سعيد",
     "icon": "happy-outline",
     "bgColor": "#FFD700",
-    "textColor": "#000000"
+    "textColor": "#000000",
+    "adhkarList": [
+      {
+        "id": "happy-1",
+        "resource": "Quran - Surah Al-Baqarah 2:152",
+        "resourceAr": "القرآن - سورة البقرة 2:152",
+        "content": "So remember Me; I will remember you. And be grateful to Me and do not deny Me.",
+        "contentAr": "فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ",
+        "repetitions": 3
+      },
+      {
+        "id": "happy-2",
+        "resource": "Hadith - Sahih Muslim",
+        "resourceAr": "حديث - صحيح مسلم",
+        "content": "Alhamdulillah (All praise is due to Allah)",
+        "contentAr": "الْحَمْدُ لِلَّهِ",
+        "repetitions": 33
+      },
+      {
+        "id": "happy-3",
+        "resource": "Dhikr",
+        "resourceAr": "ذكر",
+        "content": "SubhanAllah wa bihamdihi (Glory be to Allah and all praise is due to Him)",
+        "contentAr": "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",
+        "repetitions": 100
+      }
+    ]
   },
   {
     "id": "sad",
@@ -13,6 +39,32 @@
     "nameAr": "حزين",
     "icon": "sad-outline",
     "bgColor": "#4A90E2",
-    "textColor": "#FFFFFF"
+    "textColor": "#FFFFFF",
+    "adhkarList": [
+      {
+        "id": "sad-1",
+        "resource": "Quran - Surah Ash-Sharh 94:5-6",
+        "resourceAr": "القرآن - سورة الشرح 94:5-6",
+        "content": "Indeed, with hardship comes ease. Indeed, with hardship comes ease.",
+        "contentAr": "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا * إِنَّ مَعَ الْعُسْرِ يُسْرًا",
+        "repetitions": 3
+      },
+      {
+        "id": "sad-2",
+        "resource": "Hadith - Sahih Bukhari",
+        "resourceAr": "حديث - صحيح البخاري",
+        "content": "La ilaha illa Anta, Subhanaka, inni kuntu minaz-zalimin (None has the right to be worshipped but You, Glory be to You, indeed I have been of the wrongdoers)",
+        "contentAr": "لَا إِلَهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ",
+        "repetitions": 7
+      },
+      {
+        "id": "sad-3",
+        "resource": "Dhikr",
+        "resourceAr": "ذكر",
+        "content": "Hasbunallah wa ni'mal wakeel (Allah is sufficient for us, and He is the best Disposer of affairs)",
+        "contentAr": "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",
+        "repetitions": 10
+      }
+    ]
   }
 ]

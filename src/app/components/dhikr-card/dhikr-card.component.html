@@ -1,0 +1,21 @@
+<ion-card class="dhikr-card">
+  <ion-card-header>
+    <ion-card-title class="resource-title">
+      {{ lang() === 'ar' ? dhikr.resourceAr : dhikr.resource }}
+    </ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <div class="dhikr-content" [class.arabic]="lang() === 'ar'">
+      {{ lang() === 'ar' ? dhikr.contentAr : dhikr.content }}
+    </div>
+    
+    <div class="repetitions-container">
+      <ion-badge color="primary" class="repetitions-badge">
+        <span class="repetitions-text">
+          {{ dhikr.repetitions }}x
+        </span>
+      </ion-badge>
+    </div>
+  </ion-card-content>
+</ion-card>

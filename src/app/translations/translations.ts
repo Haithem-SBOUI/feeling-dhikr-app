@@ -30,6 +30,10 @@ export const translations = {
       purpose: 'Find peace through Quranic verses, authentic Hadiths, and meaningful Adhkar for every feeling.',
       contact: 'Email: contact@haithem-sboui.me',
       repo: 'GitHub Repository'
+    },
+    // Dhikr List Page
+    dhikrList: {
+      noData: 'No dhikr found for this feeling.'
     }
   },
   ar: {
@@ -62,6 +66,10 @@ export const translations = {
       purpose: 'اعثر على الطمأنينة من خلال الآيات القرآنية والأحاديث النبوية الصحيحة والأذكار المناسبة في كل حالاتك ومشاعرك.',
       contact: 'البريد الالكتروني: contact@haithem-sboui.me',
       repo: 'مستودع GitHub'
+    },
+    // Dhikr List Page
+    dhikrList: {
+      noData: 'لا توجد أذكار لهذا الشعور.'
     }
   }
 };

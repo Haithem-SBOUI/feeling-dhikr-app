@@ -33,7 +33,8 @@ export const translations = {
     },
     // Dhikr List Page
     dhikrList: {
-      noData: 'No dhikr found for this feeling.'
+      noData: 'No dhikr found for this feeling.',
+      resetAll: 'Reset All'
     }
   },
   ar: {
@@ -69,7 +70,8 @@ export const translations = {
     },
     // Dhikr List Page
     dhikrList: {
-      noData: 'لا توجد أذكار لهذا الشعور.'
+      noData: 'لا توجد أذكار لهذا الشعور.',
+      resetAll: 'إعادة تعيين الكل'
     }
   }
 };

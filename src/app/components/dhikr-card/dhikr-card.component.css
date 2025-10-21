@@ -2,6 +2,26 @@
   margin: 16px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.dhikr-card.clickable {
+  cursor: pointer;
+}
+
+.dhikr-card.clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dhikr-card.clickable:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dhikr-card.completed {
+  border: 2px solid var(--ion-color-success);
+  box-shadow: 0 4px 12px rgba(16, 220, 96, 0.3);
 }
 
 .resource-title {
@@ -29,13 +49,53 @@
   font-family: 'Traditional Arabic', 'Arabic Typesetting', serif;
 }
 
+.progress-container {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+ion-progress-bar {
+  height: 6px;
+  border-radius: 3px;
+  --background: var(--ion-color-light);
+  --progress-background: var(--ion-color-primary);
+  transition: --progress-background 0.3s ease;
+}
+
+ion-progress-bar.completed {
+  --progress-background: var(--ion-color-success);
+}
+
 .repetitions-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   margin-top: 12px;
   padding-top: 12px;
   border-top: 1px solid var(--ion-color-light);
+}
+
+.counter-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reset-icon {
+  font-size: 1.5rem;
+  color: var(--ion-color-medium);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 4px;
+}
+
+.reset-icon:hover {
+  color: var(--ion-color-primary);
+  transform: rotate(180deg);
+}
+
+.reset-icon:active {
+  transform: rotate(180deg) scale(0.9);
 }
 
 .repetitions-badge {
@@ -43,10 +103,31 @@
   font-weight: bold;
   padding: 8px 16px;
   border-radius: 20px;
+  transition: all 0.3s ease;
 }
 
 .repetitions-text {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+.completion-icon {
+  font-size: 1.5rem;
+  color: var(--ion-color-success);
+  animation: scaleIn 0.3s ease-out;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

@@ -1,4 +1,4 @@
-<ion-card class="dhikr-card">
+<ion-card class="dhikr-card" [class.clickable]="true" [class.completed]="isCompleted()" (click)="onCardClick()">
   <ion-card-header>
     <ion-card-title class="resource-title">
       {{ lang() === 'ar' ? dhikr.resourceAr : dhikr.resource }}
@@ -10,12 +10,37 @@
       {{ lang() === 'ar' ? dhikr.contentAr : dhikr.content }}
     </div>
     
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <ion-progress-bar 
+        [value]="getProgress()" 
+        [class.completed]="isCompleted()">
+      </ion-progress-bar>
+    </div>
+    
+    <!-- Counter Display -->
     <div class="repetitions-container">
-      <ion-badge color="primary" class="repetitions-badge">
+      <ion-badge 
+        [color]="isCompleted() ? 'success' : 'primary'" 
+        class="repetitions-badge">
         <span class="repetitions-text">
-          {{ dhikr.repetitions }}x
+          {{ currentCount() }} / {{ dhikr.repetitions }}
         </span>
       </ion-badge>
+      
+      <div class="counter-actions">
+        @if (isCompleted()) {
+          <span class="completion-icon">✓</span>
+        }
+        @if (currentCount() > 0) {
+          <ion-icon 
+            name="refresh-outline" 
+            class="reset-icon"
+            (click)="onResetClick($event)"
+            title="Reset">
+          </ion-icon>
+        }
+      </div>
     </div>
   </ion-card-content>
 </ion-card>

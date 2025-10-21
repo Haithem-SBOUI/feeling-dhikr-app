@@ -23,7 +23,7 @@
     @if (feeling) {
       <div class="dhikr-list">
         @for (dhikr of feeling.adhkarList; track dhikr.id) {
-          <app-dhikr-card [dhikr]="dhikr"></app-dhikr-card>
+          <app-dhikr-card [dhikr]="dhikr" [feelingId]="feeling.id"></app-dhikr-card>
         }
       </div>
     } @else {

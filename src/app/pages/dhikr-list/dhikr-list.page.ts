@@ -7,6 +7,7 @@ import { refreshOutline } from 'ionicons/icons';
 import { DhikrCardComponent } from '../../components/dhikr-card/dhikr-card.component';
 import { Feeling } from '../../models/feeling.model';
 import { appText, currentLanguage } from '../../translations/language.store';
+import { trackFeelingVisit } from '../../services/statistics.service';
 import feelingsData from '../../../assets/data/feelings.json';
 
 @Component({
@@ -42,6 +43,9 @@ export class DhikrListPage implements OnInit {
     const feelingId = this.route.snapshot.paramMap.get('id');
     if (feelingId) {
       this.feeling = (feelingsData as Feeling[]).find(f => f.id === feelingId);
+      
+      // Track that user visited this feeling
+      trackFeelingVisit(feelingId);
     }
   }
 

@@ -1,0 +1,142 @@
+.content-wrapper {
+  padding: 16px;
+}
+
+/* Streak Card */
+.streak-card {
+  background: linear-gradient(135deg, var(--ion-color-primary-tint) 0%, var(--ion-color-primary) 100%);
+  color: white;
+  margin-bottom: 16px;
+}
+
+.streak-display {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.streak-icon ion-icon {
+  font-size: 3rem;
+}
+
+.streak-info h2 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.streak-info p {
+  margin: 4px 0;
+  opacity: 0.9;
+}
+
+.streak-emoji {
+  font-size: 2rem;
+  margin-left: 8px;
+}
+
+.streak-details {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.streak-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.streak-detail-item ion-icon {
+  font-size: 1.5rem;
+}
+
+/* Period Selector */
+ion-segment {
+  margin: 16px 0;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  text-align: center;
+}
+
+.stat-item {
+  padding: 16px;
+  background: var(--ion-color-light);
+  border-radius: 12px;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--ion-color-primary);
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--ion-color-medium);
+  line-height: 1.2;
+}
+
+/* Lifetime Stats */
+.lifetime-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.lifetime-stat ion-icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.lifetime-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--ion-color-primary);
+  margin-bottom: 8px;
+}
+
+.lifetime-label {
+  font-size: 1rem;
+  color: var(--ion-color-medium);
+}
+
+/* No Data */
+.no-data {
+  text-align: center;
+  color: var(--ion-color-medium);
+  padding: 32px;
+  font-size: 1rem;
+}
+
+/* List Styling */
+ion-list {
+  background: transparent;
+}
+
+ion-item {
+  --background: transparent;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .stat-item {
+    padding: 12px;
+  }
+}

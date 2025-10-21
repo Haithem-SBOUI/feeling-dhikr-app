@@ -19,6 +19,7 @@ export const translations = {
     // Tabs
     tabs: {
       home: 'Home',
+      statistics: 'Statistics',
       settings: 'Settings'
     },
     // About Page
@@ -35,6 +36,26 @@ export const translations = {
     dhikrList: {
       noData: 'No dhikr found for this feeling.',
       resetAll: 'Reset All'
+    },
+    // Statistics Page
+    statistics: {
+      title: 'Statistics',
+      days: 'days',
+      currentStreak: 'Current Streak',
+      longest: 'Longest',
+      totalDays: 'Total Days',
+      today: 'Today',
+      week: 'Week',
+      month: 'Month',
+      summary: 'Summary',
+      dhikrsCompleted: 'Dhikrs Completed',
+      sessionsCompleted: 'Sessions',
+      feelingsExplored: 'Feelings',
+      lifetime: 'Lifetime Stats',
+      totalDhikrs: 'Total Dhikrs',
+      topFeelings: 'Most Frequent Feelings',
+      times: 'times',
+      noData: 'Start completing dhikrs to see your statistics!'
     }
   },
   ar: {
@@ -56,6 +77,7 @@ export const translations = {
     // Tabs
     tabs: {
       home: 'الرئيسية',
+      statistics: 'الإحصائيات',
       settings: 'الإعدادات'
     },
     // About Page
@@ -72,6 +94,26 @@ export const translations = {
     dhikrList: {
       noData: 'لا توجد أذكار لهذا الشعور.',
       resetAll: 'إعادة تعيين الكل'
+    },
+    // Statistics Page
+    statistics: {
+      title: 'الإحصائيات',
+      days: 'أيام',
+      currentStreak: 'السلسلة الحالية',
+      longest: 'الأطول',
+      totalDays: 'إجمالي الأيام',
+      today: 'اليوم',
+      week: 'الأسبوع',
+      month: 'الشهر',
+      summary: 'الملخص',
+      dhikrsCompleted: 'الأذكار المكتملة',
+      sessionsCompleted: 'الجلسات',
+      feelingsExplored: 'المشاعر',
+      lifetime: 'إحصائيات مدى الحياة',
+      totalDhikrs: 'إجمالي الأذكار',
+      topFeelings: 'المشاعر الأكثر تكرارًا',
+      times: 'مرات',
+      noData: 'ابدأ بإكمال الأذكار لترى إحصائياتك!'
     }
   }
 };

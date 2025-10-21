@@ -1,0 +1,116 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>{{ appText().statistics.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{ appText().statistics.title }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="content-wrapper">
+    
+    <!-- Streak Card -->
+    <ion-card class="streak-card">
+      <ion-card-content>
+        <div class="streak-display">
+          <div class="streak-icon">
+            <ion-icon name="flame-outline" color="danger"></ion-icon>
+          </div>
+          <div class="streak-info">
+            <h2>{{ stats().streak.currentStreak }} {{ appText().statistics.days }}</h2>
+            <p>{{ appText().statistics.currentStreak }}</p>
+            <span class="streak-emoji">{{ getStreakEmoji() }}</span>
+          </div>
+        </div>
+        <div class="streak-details">
+          <div class="streak-detail-item">
+            <ion-icon name="trophy-outline" color="warning"></ion-icon>
+            <span>{{ appText().statistics.longest }}: {{ stats().streak.longestStreak }}</span>
+          </div>
+          <div class="streak-detail-item">
+            <ion-icon name="stats-chart-outline" color="primary"></ion-icon>
+            <span>{{ appText().statistics.totalDays }}: {{ getDaysSinceStart() }}</span>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Period Selector -->
+    <ion-segment [value]="selectedPeriod" (ionChange)="onPeriodChange($event)">
+      <ion-segment-button value="today">
+        <ion-label>{{ appText().statistics.today }}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="week">
+        <ion-label>{{ appText().statistics.week }}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="month">
+        <ion-label>{{ appText().statistics.month }}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <!-- Stats Summary -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ appText().statistics.summary }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        @if (getPeriodStats()) {
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-value">{{ getPeriodStats()!.totalDhikrs || 0 }}</div>
+              <div class="stat-label">{{ appText().statistics.dhikrsCompleted }}</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">{{ getPeriodStats()!.completedDhikrs || 0 }}</div>
+              <div class="stat-label">{{ appText().statistics.sessionsCompleted }}</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">{{ getPeriodStats()!.feelingsExperienced.length || 0 }}</div>
+              <div class="stat-label">{{ appText().statistics.feelingsExplored }}</div>
+            </div>
+          </div>
+        } @else {
+          <p class="no-data">{{ appText().statistics.noData }}</p>
+        }
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Total Lifetime Stats -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ appText().statistics.lifetime }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="lifetime-stat">
+          <ion-icon name="heart-outline" color="danger"></ion-icon>
+          <span class="lifetime-value">{{ stats().totalDhikrsCompleted }}</span>
+          <span class="lifetime-label">{{ appText().statistics.totalDhikrs }}</span>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Most Frequent Feelings -->
+    @if (topFeelings().length > 0) {
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{ appText().statistics.topFeelings }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            @for (feeling of topFeelings(); track feeling.feelingId) {
+              <ion-item>
+                <ion-label>{{ getFeelingName(feeling.feelingId) }}</ion-label>
+                <ion-badge slot="end">{{ feeling.count }} {{ appText().statistics.times }}</ion-badge>
+              </ion-item>
+            }
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    }
+
+  </div>
+</ion-content>

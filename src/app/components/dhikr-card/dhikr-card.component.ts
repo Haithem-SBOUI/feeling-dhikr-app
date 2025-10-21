@@ -5,6 +5,7 @@ import { addIcons } from 'ionicons';
 import { refreshOutline } from 'ionicons/icons';
 import { Dhikr } from '../../models/feeling.model';
 import { appText, currentLanguage } from '../../translations/language.store';
+import { recordDhikrCompletion } from '../../services/statistics.service';
 
 @Component({
   selector: 'app-dhikr-card',
@@ -15,7 +16,9 @@ import { appText, currentLanguage } from '../../translations/language.store';
 })
 export class DhikrCardComponent implements OnInit {
   @Input() dhikr!: Dhikr;
+  @Input() feelingId!: string;
   @Output() reset = new EventEmitter<void>();
+  @Output() completed = new EventEmitter<void>();
   
   constructor() {
     addIcons({ refreshOutline });
@@ -46,9 +49,14 @@ export class DhikrCardComponent implements OnInit {
     this.currentCount.set(newCount);
     localStorage.setItem(`dhikr-${this.dhikr.id}-count`, newCount.toString());
     await this.lightHaptic();
+    
     if (newCount >= this.dhikr.repetitions) {
       this.isCompleted.set(true);
       await this.successHaptic();
+      
+      // Record completion in statistics
+      recordDhikrCompletion(this.dhikr.id, this.feelingId, this.dhikr.repetitions);
+      this.completed.emit();
     }
   }
   

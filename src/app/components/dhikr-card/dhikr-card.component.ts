@@ -30,13 +30,47 @@ export class DhikrCardComponent implements OnInit {
   currentCount = signal(0);
   isCompleted = signal(false);
   
+  private readonly EXPIRATION_TIME_MS = 60 * 60 * 1000; // 1 hour in milliseconds
+  
   ngOnInit() {
+    this.loadSavedProgress();
+  }
+  
+  private loadSavedProgress() {
     const savedCount = localStorage.getItem(`dhikr-${this.dhikr.id}-count`);
-    if (savedCount) {
-      const count = parseInt(savedCount);
-      this.currentCount.set(count);
-      this.isCompleted.set(count >= this.dhikr.repetitions);
+    const savedTimestamp = localStorage.getItem(`dhikr-${this.dhikr.id}-timestamp`);
+    const savedCompleted = localStorage.getItem(`dhikr-${this.dhikr.id}-completed`);
+    
+    if (!savedCount) {
+      return;
     }
+    
+    const count = parseInt(savedCount);
+    const isCompletedSaved = savedCompleted === 'true';
+    
+    // If completed, keep it forever (no expiration)
+    if (isCompletedSaved && count >= this.dhikr.repetitions) {
+      this.currentCount.set(count);
+      this.isCompleted.set(true);
+      return;
+    }
+    
+    // If not completed, check if it's expired (older than 1 hour)
+    if (savedTimestamp) {
+      const timestamp = parseInt(savedTimestamp);
+      const now = Date.now();
+      const elapsedTime = now - timestamp;
+      
+      if (elapsedTime > this.EXPIRATION_TIME_MS) {
+        // Expired - reset the counter
+        this.resetCounter();
+        return;
+      }
+    }
+    
+    // Still valid - load the saved progress
+    this.currentCount.set(count);
+    this.isCompleted.set(false);
   }
   
   async onCardClick() {
@@ -47,11 +81,19 @@ export class DhikrCardComponent implements OnInit {
     
     const newCount = this.currentCount() + 1;
     this.currentCount.set(newCount);
+    
+    // Save count and timestamp
     localStorage.setItem(`dhikr-${this.dhikr.id}-count`, newCount.toString());
+    localStorage.setItem(`dhikr-${this.dhikr.id}-timestamp`, Date.now().toString());
+    
     await this.lightHaptic();
     
     if (newCount >= this.dhikr.repetitions) {
       this.isCompleted.set(true);
+      
+      // Mark as completed (will not expire)
+      localStorage.setItem(`dhikr-${this.dhikr.id}-completed`, 'true');
+      
       await this.successHaptic();
       
       // Record completion in statistics
@@ -71,6 +113,8 @@ export class DhikrCardComponent implements OnInit {
     this.currentCount.set(0);
     this.isCompleted.set(false);
     localStorage.setItem(`dhikr-${this.dhikr.id}-count`, '0');
+    localStorage.removeItem(`dhikr-${this.dhikr.id}-timestamp`);
+    localStorage.removeItem(`dhikr-${this.dhikr.id}-completed`);
     this.reset.emit();
   }
   

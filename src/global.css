@@ -124,3 +124,34 @@ ion-card[button="true"]:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ========================================
+   Safe Area Padding for Status Bar & Navigation
+   ======================================== */
+
+/* Add safe area insets for all ion-app to respect notches and navigation bars */
+ion-app {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Headers should respect the top safe area */
+ion-header {
+  padding-top: env(safe-area-inset-top);
+}
+
+/* Content should have proper padding */
+ion-content {
+  --padding-top: calc(env(safe-area-inset-top) + 0px);
+  --padding-bottom: calc(env(safe-area-inset-bottom) + 0px);
+}
+
+/* Tab bar should respect bottom safe area */
+ion-tab-bar {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Ensure toolbar doesn't overlap with status bar */
+ion-toolbar {
+  padding-top: 0;
+}

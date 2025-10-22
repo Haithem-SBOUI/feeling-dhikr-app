@@ -26,6 +26,9 @@
         <span class="repetitions-text" [class.animate-pop]="shouldAnimateCounter()">
           {{ currentCount() }} / {{ dhikr.repetitions }}
         </span>
+        @if (completionCount() > 0) {
+          <span class="completion-multiplier">×{{ completionCount() }}</span>
+        }
       </ion-badge>
       
       <div class="counter-actions">

@@ -30,6 +30,7 @@ export class DhikrCardComponent implements OnInit {
   currentCount = signal(0);
   isCompleted = signal(false);
   animateCounter = signal(false);
+  completionCount = signal(0); // Track how many times completed in the last hour
   
   private readonly EXPIRATION_TIME_MS = 60 * 60 * 1000; // 1 hour in milliseconds
   
@@ -40,23 +41,31 @@ export class DhikrCardComponent implements OnInit {
   private loadSavedProgress() {
     const savedCount = localStorage.getItem(`dhikr-${this.dhikr.id}-count`);
     const savedTimestamp = localStorage.getItem(`dhikr-${this.dhikr.id}-timestamp`);
-    const savedCompleted = localStorage.getItem(`dhikr-${this.dhikr.id}-completed`);
+    const savedCompletionCount = localStorage.getItem(`dhikr-${this.dhikr.id}-completionCount`);
+    const savedCompletionTimestamp = localStorage.getItem(`dhikr-${this.dhikr.id}-completionTimestamp`);
+    
+    // Load completion count if still valid (within 1 hour)
+    if (savedCompletionCount && savedCompletionTimestamp) {
+      const completionTimestamp = parseInt(savedCompletionTimestamp);
+      const now = Date.now();
+      const elapsedTime = now - completionTimestamp;
+      
+      if (elapsedTime <= this.EXPIRATION_TIME_MS) {
+        // Still valid - load the completion count
+        this.completionCount.set(parseInt(savedCompletionCount));
+      } else {
+        // Expired - clear completion count
+        this.clearCompletionCount();
+      }
+    }
     
     if (!savedCount) {
       return;
     }
     
     const count = parseInt(savedCount);
-    const isCompletedSaved = savedCompleted === 'true';
     
-    // If completed, keep it forever (no expiration)
-    if (isCompletedSaved && count >= this.dhikr.repetitions) {
-      this.currentCount.set(count);
-      this.isCompleted.set(true);
-      return;
-    }
-    
-    // If not completed, check if it's expired (older than 1 hour)
+    // Check if current progress is expired (older than 1 hour)
     if (savedTimestamp) {
       const timestamp = parseInt(savedTimestamp);
       const now = Date.now();
@@ -71,10 +80,10 @@ export class DhikrCardComponent implements OnInit {
     
     // Still valid - load the saved progress
     this.currentCount.set(count);
-    this.isCompleted.set(false);
   }
   
   async onCardClick() {
+    // Don't allow clicks if already completed (until reset)
     if (this.isCompleted()) {
       await this.lightHaptic();
       return;
@@ -83,7 +92,7 @@ export class DhikrCardComponent implements OnInit {
     const newCount = this.currentCount() + 1;
     this.currentCount.set(newCount);
     
-    // Trigger counter animation - simple fade
+    // Trigger counter animation
     this.animateCounter.set(true);
     setTimeout(() => this.animateCounter.set(false), 200);
     
@@ -91,19 +100,34 @@ export class DhikrCardComponent implements OnInit {
     localStorage.setItem(`dhikr-${this.dhikr.id}-count`, newCount.toString());
     localStorage.setItem(`dhikr-${this.dhikr.id}-timestamp`, Date.now().toString());
     
-    await this.lightHaptic();
-    
-    if (newCount >= this.dhikr.repetitions) {
+    // Check if completed
+    if (newCount == this.dhikr.repetitions) {
+      // Mark as completed
       this.isCompleted.set(true);
       
-      // Mark as completed (will not expire)
-      localStorage.setItem(`dhikr-${this.dhikr.id}-completed`, 'true');
-      
+      // Success haptic feedback
       await this.successHaptic();
+      
+      // Increment completion count
+      const newCompletionCount = this.completionCount() + 1;
+      this.completionCount.set(newCompletionCount);
+      
+      // Save completion count and timestamp
+      localStorage.setItem(`dhikr-${this.dhikr.id}-completionCount`, newCompletionCount.toString());
+      localStorage.setItem(`dhikr-${this.dhikr.id}-completionTimestamp`, Date.now().toString());
       
       // Record completion in statistics
       recordDhikrCompletion(this.dhikr.id, this.feelingId, this.dhikr.repetitions);
       this.completed.emit();
+      
+      // Reset counter after a short delay to show completion animation
+      setTimeout(() => {
+        this.currentCount.set(0);
+        this.isCompleted.set(false);
+        localStorage.setItem(`dhikr-${this.dhikr.id}-count`, '0');
+      }, 200);
+    } else {
+      await this.lightHaptic();
     }
   }
   
@@ -119,8 +143,13 @@ export class DhikrCardComponent implements OnInit {
     this.isCompleted.set(false);
     localStorage.setItem(`dhikr-${this.dhikr.id}-count`, '0');
     localStorage.removeItem(`dhikr-${this.dhikr.id}-timestamp`);
-    localStorage.removeItem(`dhikr-${this.dhikr.id}-completed`);
     this.reset.emit();
+  }
+  
+  private clearCompletionCount() {
+    this.completionCount.set(0);
+    localStorage.removeItem(`dhikr-${this.dhikr.id}-completionCount`);
+    localStorage.removeItem(`dhikr-${this.dhikr.id}-completionTimestamp`);
   }
   
   private async lightHaptic() {

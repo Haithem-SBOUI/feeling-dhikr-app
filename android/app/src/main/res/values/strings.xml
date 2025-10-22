@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Feeling Dhikr</string>
+    <string name="title_activity_main">Feeling Dhikr</string>
+    <string name="package_name">com.haithemsboui.feelingdhikr</string>
+    <string name="custom_url_scheme">com.haithemsboui.feelingdhikr</string>
+</resources>

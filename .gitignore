@@ -69,4 +69,27 @@ testem.log
 .DS_Store
 Thumbs.db
 
-/android
+# Android - Ignore build artifacts and generated files while keeping config
+android/build/
+android/app/build/
+android/.gradle/
+android/local.properties
+android/.idea/
+android/*.iml
+android/app/release/
+android/captures/
+android/gradlew
+android/gradlew.bat
+android/gradle/wrapper/gradle-wrapper.jar
+android/.cxx/
+android/.externalNativeBuild/
+
+# Important Android files:
+# android/app/build.gradle (app config)
+# android/build.gradle (project config)
+# android/gradle.properties (gradle settings)
+# android/settings.gradle (modules)
+# android/app/src/ (source code)
+# android/app/proguard-rules.pro (ProGuard config)
+# android/app/capacitor.build.gradle (Capacitor config)
+# android/gradle/wrapper/gradle-wrapper.properties (gradle version)

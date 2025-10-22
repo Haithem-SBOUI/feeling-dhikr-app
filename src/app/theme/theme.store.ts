@@ -13,8 +13,14 @@ export function setTheme(theme: Theme) {
   currentTheme.set(theme);
   localStorage.setItem('app_theme', theme);
   
-  // Update document class for Ionic
-  document.body.classList.toggle('dark', theme === 'dark');
+  // Update document classes for Ionic
+  // Ionic v7 dark palette is applied via the 'ion-palette-dark' class
+  const isDark = theme === 'dark';
+  document.body.classList.toggle('ion-palette-dark', isDark);
+  document.documentElement.classList.toggle('ion-palette-dark', isDark);
+
+  // Legacy/custom support: keep toggling '.dark' for any custom selectors
+  document.body.classList.toggle('dark', isDark);
 }
 
 export function loadSavedTheme() {

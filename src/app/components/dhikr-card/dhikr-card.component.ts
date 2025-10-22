@@ -127,7 +127,7 @@ export class DhikrCardComponent implements OnInit {
         this.currentCount.set(0);
         this.isCompleted.set(false);
         localStorage.setItem(`dhikr-${this.dhikr.id}-count`, '0');
-      }, 200);
+      }, 700);
     } else {
       await this.lightHaptic();
     }

@@ -14,6 +14,14 @@ export const translations = {
       arabic: 'Arabic',
       theme: 'Theme',
       darkMode: 'Dark Mode',
+      vibration: 'Vibration',
+      vibrationOnCount: 'Vibrate on Count',
+      vibrationOnComplete: 'Vibrate on Complete',
+      countIntensity: 'Count Vibration Intensity',
+      completeIntensity: 'Complete Vibration Intensity',
+      light: 'Light',
+      medium: 'Medium',
+      heavy: 'Heavy',
       about: 'About'
     },
     // Tabs
@@ -72,6 +80,14 @@ export const translations = {
       arabic: 'العربية',
       theme: 'المظهر',
       darkMode: 'الوضع الداكن',
+      vibration: 'الاهتزاز',
+      vibrationOnCount: 'اهتزاز عند العد',
+      vibrationOnComplete: 'اهتزاز عند الإكمال',
+      countIntensity: 'شدة اهتزاز العد',
+      completeIntensity: 'شدة اهتزاز الإكمال',
+      light: 'خفيف',
+      medium: 'متوسط',
+      heavy: 'قوي',
       about: 'حول التطبيق'
     },
     // Tabs

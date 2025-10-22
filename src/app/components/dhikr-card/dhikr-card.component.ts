@@ -6,6 +6,7 @@ import { refreshOutline } from 'ionicons/icons';
 import { Dhikr } from '../../models/feeling.model';
 import { appText, currentLanguage } from '../../translations/language.store';
 import { recordDhikrCompletion } from '../../services/statistics.service';
+import { vibrationSettings } from '../../services/vibration-settings.service';
 
 @Component({
   selector: 'app-dhikr-card',
@@ -26,6 +27,7 @@ export class DhikrCardComponent implements OnInit {
   
   appText = appText;
   lang = currentLanguage;
+  vibrationSettings = vibrationSettings;
   
   currentCount = signal(0);
   isCompleted = signal(false);
@@ -153,8 +155,13 @@ export class DhikrCardComponent implements OnInit {
   }
   
   private async lightHaptic() {
+    const settings = this.vibrationSettings();
+    if (!settings.enableOnCount) {
+      return; // Vibration disabled for counting
+    }
+    
     try {
-      await Haptics.impact({ style: ImpactStyle.Light });
+      await Haptics.impact({ style: settings.countIntensity });
     } catch (error) {
       // Haptics not available (web browser)
       console.log('Haptics not available');
@@ -162,13 +169,18 @@ export class DhikrCardComponent implements OnInit {
   }
   
   private async successHaptic() {
+    const settings = this.vibrationSettings();
+    if (!settings.enableOnComplete) {
+      return; // Vibration disabled for completion
+    }
+    
     try {
-      // Triple vibration for success
-      await Haptics.impact({ style: ImpactStyle.Heavy });
+      // Triple vibration for success with configured intensity
+      await Haptics.impact({ style: settings.completeIntensity });
       await new Promise(resolve => setTimeout(resolve, 100));
-      await Haptics.impact({ style: ImpactStyle.Heavy });
+      await Haptics.impact({ style: settings.completeIntensity });
       await new Promise(resolve => setTimeout(resolve, 100));
-      await Haptics.impact({ style: ImpactStyle.Heavy });
+      await Haptics.impact({ style: settings.completeIntensity });
     } catch (error) {
       console.log('Haptics not available');
     }

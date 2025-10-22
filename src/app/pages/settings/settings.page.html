@@ -33,8 +33,65 @@
           (ionChange)="onThemeToggle()">
         </ion-toggle>
       </ion-item>
+    </ion-list>
 
-      <!-- About Button -->
+    <!-- Vibration Settings Section -->
+    <ion-list>
+      <ion-list-header>
+        <ion-label>{{ appText().settings.vibration }}</ion-label>
+      </ion-list-header>
+
+      <!-- Vibration on Count -->
+      <ion-item>
+        <ion-label>{{ appText().settings.vibrationOnCount }}</ion-label>
+        <ion-toggle 
+          [checked]="vibrationSettings().enableOnCount" 
+          (ionChange)="onVibrationOnCountToggle($event)">
+        </ion-toggle>
+      </ion-item>
+
+      <!-- Count Intensity -->
+      @if (vibrationSettings().enableOnCount) {
+        <ion-item>
+          <ion-label>{{ appText().settings.countIntensity }}</ion-label>
+          <ion-select 
+            [value]="vibrationSettings().countIntensity" 
+            (ionChange)="onCountIntensityChange($event)"
+            interface="popover">
+            <ion-select-option [value]="ImpactStyle.Light">{{ appText().settings.light }}</ion-select-option>
+            <ion-select-option [value]="ImpactStyle.Medium">{{ appText().settings.medium }}</ion-select-option>
+            <ion-select-option [value]="ImpactStyle.Heavy">{{ appText().settings.heavy }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      }
+
+      <!-- Vibration on Complete -->
+      <ion-item>
+        <ion-label>{{ appText().settings.vibrationOnComplete }}</ion-label>
+        <ion-toggle 
+          [checked]="vibrationSettings().enableOnComplete" 
+          (ionChange)="onVibrationOnCompleteToggle($event)">
+        </ion-toggle>
+      </ion-item>
+
+      <!-- Complete Intensity -->
+      @if (vibrationSettings().enableOnComplete) {
+        <ion-item>
+          <ion-label>{{ appText().settings.completeIntensity }}</ion-label>
+          <ion-select 
+            [value]="vibrationSettings().completeIntensity" 
+            (ionChange)="onCompleteIntensityChange($event)"
+            interface="popover">
+            <ion-select-option [value]="ImpactStyle.Light">{{ appText().settings.light }}</ion-select-option>
+            <ion-select-option [value]="ImpactStyle.Medium">{{ appText().settings.medium }}</ion-select-option>
+            <ion-select-option [value]="ImpactStyle.Heavy">{{ appText().settings.heavy }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      }
+    </ion-list>
+
+    <!-- About Section -->
+    <ion-list>
       <ion-item button (click)="goToAbout()">
         <ion-label>{{ appText().settings.about }}</ion-label>
       </ion-item>

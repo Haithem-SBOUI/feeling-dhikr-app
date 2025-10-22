@@ -2,7 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonCard, IonCardContent, IonIcon, IonGrid, IonRow, IonCol } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { happyOutline, sadOutline } from 'ionicons/icons';
+import { 
+  happyOutline, 
+  sadOutline,
+  flameOutline,
+  alertCircleOutline,
+  timeOutline,
+  shieldCheckmarkOutline,
+  helpCircleOutline,
+  heartOutline,
+  cloudOutline,
+  removeCircleOutline,
+  giftOutline
+} from 'ionicons/icons';
 import { Feeling } from '../../models/feeling.model';
 import feelingsData from '../../../assets/data/feelings.json';
 import { currentLanguage } from '../../translations/language.store';
@@ -21,7 +33,19 @@ export class FeelingsListComponent implements OnInit {
   currLang = currentLanguage;
   
   constructor(private router: Router) {
-    addIcons({ happyOutline, sadOutline });
+    addIcons({ 
+      'happy-outline': happyOutline, 
+      'sad-outline': sadOutline,
+      'flame-outline': flameOutline,
+      'alert-circle-outline': alertCircleOutline,
+      'time-outline': timeOutline,
+      'shield-checkmark-outline': shieldCheckmarkOutline,
+      'help-circle-outline': helpCircleOutline,
+      'heart-outline': heartOutline,
+      'cloud-outline': cloudOutline,
+      'remove-circle-outline': removeCircleOutline,
+      'gift-outline': giftOutline
+    });
   }
 
   ngOnInit() {

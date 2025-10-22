@@ -4,7 +4,7 @@
     "nameEn": "Happy",
     "nameAr": "سعيد",
     "icon": "happy-outline",
-    "bgColor": "#FFD700",
+    "bgColor": "#FFC107",
     "textColor": "#000000",
     "adhkarList": [
       {
@@ -38,7 +38,7 @@
     "nameEn": "Sad",
     "nameAr": "حزين",
     "icon": "sad-outline",
-    "bgColor": "#4A90E2",
+    "bgColor": "#607D8B",
     "textColor": "#FFFFFF",
     "adhkarList": [
       {
@@ -64,6 +64,312 @@
         "content": "Hasbunallah wa ni'mal wakeel (Allah is sufficient for us, and He is the best Disposer of affairs)",
         "contentAr": "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",
         "repetitions": 10
+      }
+    ]
+  },
+  {
+    "id": "angry",
+    "nameEn": "Angry",
+    "nameAr": "غاضب",
+    "icon": "flame-outline",
+    "bgColor": "#FF5252",
+    "textColor": "#FFFFFF",
+    "adhkarList": [
+      {
+        "id": "angry-1",
+        "resource": "Hadith - Sahih Bukhari",
+        "resourceAr": "حديث - صحيح البخاري",
+        "content": "A'udhu billahi minash-shaytanir-rajim (I seek refuge in Allah from Satan, the accursed)",
+        "contentAr": "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ",
+        "repetitions": 3
+      },
+      {
+        "id": "angry-2",
+        "resource": "Dhikr",
+        "resourceAr": "ذكر",
+        "content": "La hawla wa la quwwata illa billah (There is no power nor strength except with Allah)",
+        "contentAr": "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
+        "repetitions": 10
+      },
+      {
+        "id": "angry-3",
+        "resource": "Quran - Surah Al-A'raf 7:200",
+        "resourceAr": "القرآن - سورة الأعراف 7:200",
+        "content": "And if an evil suggestion comes to you from Satan, then seek refuge in Allah. Indeed, He is Hearing and Knowing.",
+        "contentAr": "وَإِمَّا يَنزَغَنَّكَ مِنَ الشَّيْطَانِ نَزْغٌ فَاسْتَعِذْ بِاللَّهِ ۚ إِنَّهُ سَمِيعٌ عَلِيمٌ",
+        "repetitions": 3
+      }
+    ]
+  },
+  {
+    "id": "anxious",
+    "nameEn": "Anxious",
+    "nameAr": "قلق",
+    "icon": "alert-circle-outline",
+    "bgColor": "#FF9800",
+    "textColor": "#000000",
+    "adhkarList": [
+      {
+        "id": "anxious-1",
+        "resource": "Quran - Surah Ar-Ra'd 13:28",
+        "resourceAr": "القرآن - سورة الرعد 13:28",
+        "content": "Verily, in the remembrance of Allah do hearts find rest.",
+        "contentAr": "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",
+        "repetitions": 3
+      },
+      {
+        "id": "anxious-2",
+        "resource": "Hadith - Sunan Abu Dawud",
+        "resourceAr": "حديث - سنن أبي داود",
+        "content": "Allahumma inni a'udhu bika minal-hammi wal-hazan (O Allah, I seek refuge in You from worry and grief)",
+        "contentAr": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ",
+        "repetitions": 7
+      },
+      {
+        "id": "anxious-3",
+        "resource": "Dhikr",
+        "resourceAr": "ذكر",
+        "content": "Tawakkaltu 'alallah (I put my trust in Allah)",
+        "contentAr": "تَوَكَّلْتُ عَلَى اللَّهِ",
+        "repetitions": 10
+      }
+    ]
+  },
+  {
+    "id": "bored",
+    "nameEn": "Bored",
+    "nameAr": "ملل",
+    "icon": "time-outline",
+    "bgColor": "#9E9E9E",
+    "textColor": "#FFFFFF",
+    "adhkarList": [
+      {
+        "id": "bored-1",
+        "resource": "Dhikr",
+        "resourceAr": "ذكر",
+        "content": "SubhanAllah (Glory be to Allah)",
+        "contentAr": "سُبْحَانَ اللَّهِ",
+        "repetitions": 33
+      },
+      {
+        "id": "bored-2",
+        "resource": "Dhikr",
+        "resourceAr": "ذكر",
+        "content": "Alhamdulillah (All praise is due to Allah)",
+        "contentAr": "الْحَمْدُ لِلَّهِ",
+        "repetitions": 33
+      },
+      {
+        "id": "bored-3",
+        "resource": "Dhikr",
+        "resourceAr": "ذكر",
+        "content": "Allahu Akbar (Allah is the Greatest)",
+        "contentAr": "اللَّهُ أَكْبَرُ",
+        "repetitions": 33
+      }
+    ]
+  },
+  {
+    "id": "confident",
+    "nameEn": "Confident",
+    "nameAr": "واثق",
+    "icon": "shield-checkmark-outline",
+    "bgColor": "#4CAF50",
+    "textColor": "#FFFFFF",
+    "adhkarList": [
+      {
+        "id": "confident-1",
+        "resource": "Quran - Surah Al-Imran 3:173",
+        "resourceAr": "القرآن - سورة آل عمران 3:173",
+        "content": "Hasbunallahu wa ni'mal wakeel (Sufficient for us is Allah, and He is the best Disposer of affairs)",
+        "contentAr": "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",
+        "repetitions": 7
+      },
+      {
+        "id": "confident-2",
+        "resource": "Hadith - Sunan Ibn Majah",
+        "resourceAr": "حديث - سنن ابن ماجه",
+        "content": "Allahumma la sahla illa ma ja'altahu sahla (O Allah, there is nothing easy except what You make easy)",
+        "contentAr": "اللَّهُمَّ لَا سَهْلَ إِلَّا مَا جَعَلْتَهُ سَهْلًا",
+        "repetitions": 3
+      },
+      {
+        "id": "confident-3",
+        "resource": "Dhikr",
+        "resourceAr": "ذكر",
+        "content": "Bismillahi tawakkaltu 'alallah (In the name of Allah, I put my trust in Allah)",
+        "contentAr": "بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ",
+        "repetitions": 10
+      }
+    ]
+  },
+  {
+    "id": "confused",
+    "nameEn": "Confused",
+    "nameAr": "محتار",
+    "icon": "help-circle-outline",
+    "bgColor": "#9C27B0",
+    "textColor": "#FFFFFF",
+    "adhkarList": [
+      {
+        "id": "confused-1",
+        "resource": "Hadith - Sunan At-Tirmidhi",
+        "resourceAr": "حديث - سنن الترمذي",
+        "content": "Allahumma inni astakhiruka bi'ilmika (O Allah, I seek Your guidance by Your knowledge)",
+        "contentAr": "اللَّهُمَّ إِنِّي أَسْتَخِيرُكَ بِعِلْمِكَ",
+        "repetitions": 1
+      },
+      {
+        "id": "confused-2",
+        "resource": "Quran - Surah Taha 20:114",
+        "resourceAr": "القرآن - سورة طه 20:114",
+        "content": "Rabbi zidni 'ilma (My Lord, increase me in knowledge)",
+        "contentAr": "رَبِّ زِدْنِي عِلْمًا",
+        "repetitions": 7
+      },
+      {
+        "id": "confused-3",
+        "resource": "Dhikr",
+        "resourceAr": "ذكر",
+        "content": "Allahumma hdini (O Allah, guide me)",
+        "contentAr": "اللَّهُمَّ اهْدِنِي",
+        "repetitions": 10
+      }
+    ]
+  },
+  {
+    "id": "content",
+    "nameEn": "Content",
+    "nameAr": "راضٍ",
+    "icon": "heart-outline",
+    "bgColor": "#E91E63",
+    "textColor": "#FFFFFF",
+    "adhkarList": [
+      {
+        "id": "content-1",
+        "resource": "Hadith - Sahih Muslim",
+        "resourceAr": "حديث - صحيح مسلم",
+        "content": "Raditu billahi Rabba (I am pleased with Allah as my Lord)",
+        "contentAr": "رَضِيتُ بِاللَّهِ رَبًّا",
+        "repetitions": 3
+      },
+      {
+        "id": "content-2",
+        "resource": "Dhikr",
+        "resourceAr": "ذكر",
+        "content": "Alhamdulillah 'ala kulli hal (All praise is due to Allah in every situation)",
+        "contentAr": "الْحَمْدُ لِلَّهِ عَلَى كُلِّ حَالٍ",
+        "repetitions": 10
+      },
+      {
+        "id": "content-3",
+        "resource": "Quran - Surah Ibrahim 14:7",
+        "resourceAr": "القرآن - سورة إبراهيم 14:7",
+        "content": "If you are grateful, I will surely increase you (in favor)",
+        "contentAr": "لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ",
+        "repetitions": 3
+      }
+    ]
+  },
+  {
+    "id": "depressed",
+    "nameEn": "Depressed",
+    "nameAr": "مكتئب",
+    "icon": "cloud-outline",
+    "bgColor": "#455A64",
+    "textColor": "#FFFFFF",
+    "adhkarList": [
+      {
+        "id": "depressed-1",
+        "resource": "Quran - Surah Yusuf 12:87",
+        "resourceAr": "القرآن - سورة يوسف 12:87",
+        "content": "And never give up hope of Allah's Mercy. Certainly no one despairs of Allah's Mercy, except the people who disbelieve.",
+        "contentAr": "وَلَا تَيْأَسُوا مِن رَّوْحِ اللَّهِ ۖ إِنَّهُ لَا يَيْأَسُ مِن رَّوْحِ اللَّهِ إِلَّا الْقَوْمُ الْكَافِرُونَ",
+        "repetitions": 3
+      },
+      {
+        "id": "depressed-2",
+        "resource": "Hadith - Jami' At-Tirmidhi",
+        "resourceAr": "حديث - جامع الترمذي",
+        "content": "La ilaha illa Allah al-'Azim al-Halim (None has the right to be worshipped but Allah, the Most Great, the Most Forbearing)",
+        "contentAr": "لَا إِلَهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ",
+        "repetitions": 7
+      },
+      {
+        "id": "depressed-3",
+        "resource": "Dhikr",
+        "resourceAr": "ذكر",
+        "content": "Ya Hayyu Ya Qayyum bi-rahmatika astagheeth (O Ever Living, O Sustainer of all, by Your mercy I seek assistance)",
+        "contentAr": "يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ",
+        "repetitions": 10
+      }
+    ]
+  },
+  {
+    "id": "doubtful",
+    "nameEn": "Doubtful",
+    "nameAr": "شاك",
+    "icon": "remove-circle-outline",
+    "bgColor": "#795548",
+    "textColor": "#FFFFFF",
+    "adhkarList": [
+      {
+        "id": "doubtful-1",
+        "resource": "Quran - Surah Ali 'Imran 3:191",
+        "resourceAr": "القرآن - سورة آل عمران 3:191",
+        "content": "Our Lord, You did not create this aimlessly; exalted are You; then protect us from the punishment of the Fire.",
+        "contentAr": "رَبَّنَا مَا خَلَقْتَ هَٰذَا بَاطِلًا سُبْحَانَكَ فَقِنَا عَذَابَ النَّارِ",
+        "repetitions": 3
+      },
+      {
+        "id": "doubtful-2",
+        "resource": "Dhikr",
+        "resourceAr": "ذكر",
+        "content": "Amantu billah (I believe in Allah)",
+        "contentAr": "آمَنْتُ بِاللَّهِ",
+        "repetitions": 10
+      },
+      {
+        "id": "doubtful-3",
+        "resource": "Hadith - Sahih Muslim",
+        "resourceAr": "حديث - صحيح مسلم",
+        "content": "La ilaha illallah wahdahu la sharika lah (There is no deity but Allah, alone without partner)",
+        "contentAr": "لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ",
+        "repetitions": 10
+      }
+    ]
+  },
+  {
+    "id": "grateful",
+    "nameEn": "Grateful",
+    "nameAr": "شاكر",
+    "icon": "gift-outline",
+    "bgColor": "#00BCD4",
+    "textColor": "#FFFFFF",
+    "adhkarList": [
+      {
+        "id": "grateful-1",
+        "resource": "Hadith - Sunan Ibn Majah",
+        "resourceAr": "حديث - سنن ابن ماجه",
+        "content": "Alhamdulillahi 'ala kulli ni'matin (All praise is due to Allah for every blessing)",
+        "contentAr": "الْحَمْدُ لِلَّهِ عَلَى كُلِّ نِعْمَةٍ",
+        "repetitions": 10
+      },
+      {
+        "id": "grateful-2",
+        "resource": "Quran - Surah Ibrahim 14:7",
+        "resourceAr": "القرآن - سورة إبراهيم 14:7",
+        "content": "If you are grateful, I will surely increase you (in favor)",
+        "contentAr": "لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ",
+        "repetitions": 3
+      },
+      {
+        "id": "grateful-3",
+        "resource": "Dhikr",
+        "resourceAr": "ذكر",
+        "content": "Alhamdulillahi Rabbil-'alamin (All praise is due to Allah, Lord of all the worlds)",
+        "contentAr": "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+        "repetitions": 33
       }
     ]
   }
